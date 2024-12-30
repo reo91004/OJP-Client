@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/card';
 import Link from 'next/link';
 
+// 임시 문제
 const problems = [
   {
     id: 1,
