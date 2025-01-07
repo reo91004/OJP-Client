@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <div className='space-y-8'>
       <section className='text-center'>
-        <h1 className='text-4xl font-bold mb-4'>신승재 신우진</h1>
+        <h1 className='text-4xl font-bold mb-4'>신용성</h1>
         <p className='text-xl mb-6'>맞춤형 학습으로 수학 실력을 향상시키세요</p>
         <div className='flex justify-center space-x-4'>
           <Link href='/explore'>
@@ -91,9 +91,9 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <ol className='list-decimal list-inside space-y-2'>
-              <li>신우진</li>
-              <li>신승재</li>
-              <li>병신</li>
+              <li>신용성</li>
+              <li>병신우진</li>
+              <li>미적5점</li> 
             </ol>
           </CardContent>
         </Card>
