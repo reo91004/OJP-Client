@@ -15,6 +15,7 @@ RUN apt install -y \
     gnupg\
     git\
     bash\
+    bash-completion\
     build-essential\
     gcc\
     g++\
