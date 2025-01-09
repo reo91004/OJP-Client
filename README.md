@@ -20,6 +20,30 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Enable Git completion in Container
+
+First, execute following command in Container shell
+```bash
+curl -fsSL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash \
+    -o /etc/bash_completion.d/git-completion.bash
+```
+Second, execute following command in Container shell
+
+```bash
+echo "if [ -f /usr/share/bash-completion/bash_completion ]; then" >> /root/.bashrc && \
+echo "    . /usr/share/bash-completion/bash_completion" >> /root/.bashrc && \
+echo "fi" >> /root/.bashrc && \
+echo "if [ -f /etc/bash_completion.d/git-completion.bash ]; then" >> /root/.bashrc && \
+echo "    . /etc/bash_completion.d/git-completion.bash" >> /root/.bashrc && \
+echo "fi" >> /root/.bashrc
+```
+Finally, execute following command in Container shell
+```bash
+source ~/.bashrc
+```
+
+Now, you can use git completion in container!
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
