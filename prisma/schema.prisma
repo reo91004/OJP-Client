@@ -9,6 +9,16 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
+}
+
+//Need to implement
+model Problem{
+  
+}
+
+//Need to implement
+model User{
+
 }
