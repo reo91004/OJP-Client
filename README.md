@@ -20,6 +20,14 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Connect to DB Server
+First, make a .env file.
+
+Second, add this line in .env file.
+```bash
+DATABASE_URL="mongodb+srv://<username>:<db_password>@ojpdb.phi77.mongodb.net/?retryWrites=true&w=majority&appName=ojpDB" 
+```
+
 ## Enable Git completion in Container
 
 First, execute following command in Container shell
