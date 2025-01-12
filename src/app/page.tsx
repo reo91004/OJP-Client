@@ -29,7 +29,7 @@ export default function Home() {
           <Link href='/explore'>
             <Button size='lg'>문제 풀기</Button>
           </Link>
-          <Link href='/register'>
+          <Link href='/auth/register'>
             <Button size='lg' variant='outline'>
               회원가입
             </Button>
@@ -93,7 +93,7 @@ export default function Home() {
             <ol className='list-decimal list-inside space-y-2'>
               <li>신용성</li>
               <li>병신우진</li>
-              <li>미적5점</li> 
+              <li>미적5점</li>
             </ol>
           </CardContent>
         </Card>

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Logo from '@/../public/images/logo.png';
+import Logo from '@/../public/images/logo.svg';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -52,16 +52,10 @@ export default function Page() {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen px-4 py-8'>
-      {/* 
-        <Image 
-          src={Logo} 
-          alt="logo" 
-          width={180} 
-          className="mb-8" 
-          priority 
-        /> 
-      */}
+    <div className='flex flex-col items-center justify-center h-[80vh] px-4 pt-12'>
+      <Link href='/'>
+        <Image src={Logo} alt='logo' width={260} className='mb-8' priority />
+      </Link>
       <Card className='w-full max-w-md'>
         <CardHeader className='text-center'>
           <CardTitle className='text-[1.7rem] font-bold text-slate-700'>
@@ -117,14 +111,13 @@ export default function Page() {
             아직 계정이 없으신가요?
           </span>
           <Link
-            href='/auth/registration'
+            href='/auth/register'
             className='text-sm text-[#3699ff] hover:text-[#1086ff]'
           >
             회원가입
           </Link>
         </CardFooter>
       </Card>
-
       {/* 성공 모달 */}
       <Dialog open={successModalOpen} onOpenChange={setSuccessModalOpen}>
         <DialogContent className='max-w-sm text-center'>
@@ -164,7 +157,6 @@ export default function Page() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-
       {/* 실패 모달 */}
       <Dialog open={failureModalOpen} onOpenChange={setFailureModalOpen}>
         <DialogContent className='max-w-sm text-center'>

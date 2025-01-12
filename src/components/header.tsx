@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
+import Logo from '@/../public/images/logo.svg';
 import { Button } from '@/components/ui/button';
 import { useTheme } from './theme-provider';
 import { Moon, Sun, Menu } from 'lucide-react';
@@ -17,11 +19,13 @@ export default function Header() {
   return (
     <header className='bg-white dark:bg-gray-800 border-b dark:border-gray-700'>
       <div className='container mx-auto px-4 py-4 flex justify-between items-center'>
-        <Link
-          href='/'
-          className='text-2xl font-bold text-blue-600 dark:text-blue-400'
-        >
-          OJP
+        <Link href='/'>
+          <Image
+            src={Logo}
+            alt='logo'
+            className='h-12 w-auto object-contain'
+            priority
+          />
         </Link>
         <nav className='hidden md:flex items-center space-x-4'>
           <Link href='/explore'>
@@ -33,7 +37,9 @@ export default function Header() {
           <Link href='/board'>
             <Button variant='ghost'>게시판</Button>
           </Link>
-          <Button variant='outline'>로그인</Button>
+          <Link href='/auth/login'>
+            <Button variant='outline'>로그인</Button>
+          </Link>
           <Button
             variant='ghost'
             size='icon'
@@ -65,7 +71,7 @@ export default function Header() {
               <Link href='/board'>게시판</Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Link href='/login'>로그인</Link>
+              <Link href='/auth/login'>로그인</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
