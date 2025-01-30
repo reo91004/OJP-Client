@@ -34,34 +34,9 @@ const problems = [
 export default function ProblemsPage() {
   return (
     <div>
-      <h1 className='text-3xl font-bold mb-6'>문제 목록</h1>
-      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
-        {problems.map((problem) => (
-          <Card key={problem.id}>
-            <CardHeader>
-              <CardTitle>{problem.title}</CardTitle>
-              <CardDescription>난이도: {problem.difficulty}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className='flex flex-wrap gap-2'>
-                {problem.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className='bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded'
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Link href={`/problems/${problem.id}`}>
-                <Button>문제 풀기</Button>
-              </Link>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
+    <section className='text-center'>
+      
+    </section>
     </div>
   );
 }

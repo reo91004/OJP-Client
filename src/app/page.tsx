@@ -29,11 +29,15 @@ export default function Home() {
           <Link href='/explore'>
             <Button size='lg'>문제 풀기</Button>
           </Link>
+          <Link href='/problems/recommand'>
+            <Button size='lg' variant='secondary'>문제 추천</Button>
+          </Link>
           <Link href='/auth/register'>
             <Button size='lg' variant='outline'>
               회원가입
             </Button>
           </Link>
+          
         </div>
       </section>
 
