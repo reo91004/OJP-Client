@@ -1,6 +1,9 @@
 # Use Ubuntu 24.04 as the base image
 FROM ubuntu:24.04
 
+RUN apt clean && rm -rf /var/lib/apt/lists/*
+
+
 # update package lists
 RUN apt update && apt upgrade -y
 
