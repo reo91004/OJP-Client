@@ -23,16 +23,13 @@ RUN apt update &&\
 # Set up working directory
 WORKDIR /app
 
-# Copy package files to install dependencies
-COPY package.json package-lock.json* ./
+# # Copy package files to install dependencies
+# COPY package.json package-lock.json* ./
 
-# Install dependencies (this installs react, react-router-dom, redux, axios, etc.)
-RUN npm install
-# Copy the rest of the application source code
-COPY . .
-
-# Build the React app (ensure your package.json has a 'build' script)
-RUN npm run build
+# # Install dependencies (this installs react, react-router-dom, redux, axios, etc.)
+# RUN npm install
+# # Copy the rest of the application source code
+# COPY . .
 
 # Use bash as the default shell
 SHELL [ "/bin/bash", "-c" ]
