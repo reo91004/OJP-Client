@@ -32,16 +32,11 @@ RUN apt update &&\
     apt install -y nodejs&&\
     rm -rf /var/lib/apt/lists/*
 
-# Set up working directory
-WORKDIR /app/OJP-Client
+# Set the working directory inside the container
+# WORKDIR /app/OJP-Client
 
-# Copy package files to install dependencies
-# COPY package.json package-lock.json* ./
-
-# Install dependencies (this installs react, react-router-dom, redux, axios, etc.)
-RUN npm install
-# Copy the rest of the application source code
-# COPY . .
+# # Copy only the client directory into the container
+# COPY ./OJP-Client .
 
 # Set the working directory
 WORKDIR /app
