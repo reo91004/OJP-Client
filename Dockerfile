@@ -9,27 +9,30 @@ WORKDIR /app
 
 # Update and install 
 RUN apt install -y \
-    software-properties-common\
-    curl\
-    wget\
-    gnupg\
-    git\
-    bash\
-    bash-completion\
-    build-essential\
-    gcc\
-    g++\
-    python3\
-    python3-pip\
-    python3-venv\
-    vim
+    curl gnupg ca-certificates &&\
+    rm -rf /var/lib/apt/lists/*
 
-# Install Node.js and npm using NodeSource
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt install -y nodejs
+# Add NodeSource repository for Node.js 20
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+
+#Install Node.js 
+RUN apt update &&\
+    apt install -y nodejs&&\
+    rm -rf /var/lib/apt/lists/*
 
 # Set up working directory
 WORKDIR /app
+
+# Copy package files to install dependencies
+COPY package.json package-lock.json* ./
+
+# Install dependencies (this installs react, react-router-dom, redux, axios, etc.)
+RUN npm install
+# Copy the rest of the application source code
+COPY . .
+
+# Build the React app (ensure your package.json has a 'build' script)
+RUN npm run build
 
 # Use bash as the default shell
 SHELL [ "/bin/bash", "-c" ]
