@@ -3,7 +3,6 @@ FROM ubuntu:24.04
 
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
-
 # update package lists
 RUN apt update && apt upgrade -y
 
