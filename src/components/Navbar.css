@@ -1,21 +1,22 @@
-/* 1) Import your desired Korean web font (e.g., Noto Sans KR) */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+/* src/components/Navbar.css */
+
+/* Pretendard로 글꼴 변경 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css');
 
 .navbar {
-  max-width: 100%;
-  height: 60px;
-  margin: 0 auto;
-  padding: 0 5rem;
-
+  /* flexbox를 사용하여 좌우 정렬 */
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-
+  justify-content: space-between; /* 좌우 섹션을 최대한 멀리 배치 */
+  align-items: center; /* 세로 방향으로 중앙 정렬 */
+  height: 80px; /* 높이를 피그마 디자인에 맞게 115px로 유지 */
+  padding: 30px 115px; /* 상하 30px, 좌우 115px 패딩 (피그마 디자인 기준) */
   background-color: #fff;
   border-bottom: 1px solid #eee;
-
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Pretendard Variable', sans-serif; /* Pretendard 폰트 적용 */
   font-size: 13px;
+  /* 가로 스크롤바 방지 */
+  overflow-x: hidden;
+  box-sizing: border-box; /* padding, border가 width/height에 포함되도록 */
 }
 
 /* Left side: Logo + 문제/게시판/마이페이지 */
@@ -25,32 +26,31 @@
 }
 
 .navbar-logo {
-  height: 40px;
-  margin-right: 4rem;
+  height: 45px; /* 로고 높이를 조금 줄임 (45px) */
+  margin-right: 50px; /* 로고와 메뉴 사이 간격을 늘림 (50px) */
 }
 
-/* Remove default Link styles */
-.navbar a {
-  text-decoration: none; /* 밑줄 제거 */
-  color: inherit; /* 부모 요소의 색상 유지 */
-}
-
-/* 기본 스타일링 유지 */
 .navbar-menu-left {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 30px; /* 메뉴 항목 사이 간격 (피그마 디자인 기준) */
   margin: 0;
   padding: 0;
 }
 
 .navbar-menu-left li {
   cursor: pointer;
-  color: #333;
+  color: #333; /* 글자색 유지 */
+  font-size: 18px;
 }
 
 .navbar-menu-left li:hover {
-  color: #2A4AC2;
+  color: #2a4ac2; /* hover 색상 유지 */
+}
+
+.navbar-menu-left a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Right side: divider + API/고객센터 + 로그인/로그아웃 */
@@ -62,28 +62,36 @@
 /* Vertical divider */
 .vertical-divider {
   width: 1px;
-  height: 24px;
+  height: 15px; /* 구분선 높이를 피그마 디자인에 맞게 15px로 수정 */
   background-color: #ccc;
-  margin-right: 1rem;
+  margin-right: 15px; /* 구분선과 메뉴 사이 간격 (피그마 디자인 기준) */
 }
 
 .navbar-menu-right {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 15px; /* 메뉴 항목 사이 간격 (피그마 디자인 기준)*/
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 .navbar-menu-right li {
   cursor: pointer;
-  color: #333;
+  color: #333; /* 글자색 유지*/
+  font-size: 16px;
 }
 
 .navbar-menu-right li:hover {
-  color: #2A4AC2;
+  color: #2a4ac2; /* hover 색상 유지 */
 }
 
 .nav-button {
   font-weight: 500;
+  font-size: 16px;
+}
+
+.navbar-menu-right a {
+  text-decoration: none;
+  color: inherit;
 }
