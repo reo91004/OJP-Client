@@ -19,14 +19,18 @@ function App() {
       <Routes>
         <Route path="/" element={ <div>
           <div className = "main-bg"></div>
-        </div> } /> 
+        </div> } />
+        <Route path="/problems" element={<></>}/> 
+        <Route path="/board" element={<></>}/>
         <Route path="/mypages" element = {
           <>
             <Sidebar></Sidebar>
           </>
         }/>
+        <Route path="/api" element={<></>}/>
+        <Route path="/customer-service" element={<></>}/>
         <Route path="/login" element = {<>로그인페이지</>}/>
-      
+        <Route path="/register" element={<></>}/>
       </Routes>
     </>
   )
