@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '/app/src/assets/logo-ojp.svg';
 
@@ -7,11 +8,19 @@ function Navbar({ isLoggedIn }) {
     <nav className="navbar">
       {/* Left section: logo + 문제/게시판/마이페이지 */}
       <div className="navbar-left">
-        <img src={logo} alt="OJP Logo" className="navbar-logo" />
+        <Link to="/">
+          <img src={logo} alt="OJP Logo" className="navbar-logo" />
+        </Link>
         <ul className="navbar-menu-left">
-          <li>문제</li>
-          <li>게시판</li>
-          <li href ="/mypages">마이페이지</li>
+          <li>
+            <Link to="/problems">문제</Link>
+          </li>
+          <li>
+            <Link to="/board">게시판</Link>
+          </li>
+          <li>
+            <Link to="/mypages">마이페이지</Link>
+          </li>
         </ul>
       </div>
 
@@ -19,14 +28,24 @@ function Navbar({ isLoggedIn }) {
       <div className="navbar-right">
         <div className="vertical-divider"></div>
         <ul className="navbar-menu-right">
-          <li>API</li>
-          <li>고객센터</li>
+          <li>
+            <Link to="/api">API</Link>
+          </li>
+          <li>
+            <Link to="/customer-service">고객센터</Link>
+          </li>
           {isLoggedIn ? (
-            <li className="nav-button">로그아웃</li>
+            <li className="nav-button">
+              <span onClick={() => console.log('handle logout')}>로그아웃</span>
+            </li>
           ) : (
             <>
-              <li className="nav-button">로그인</li>
-              <li className="nav-button">회원가입</li>
+              <li className="nav-button">
+                <Link to="/login">로그인</Link>
+              </li>
+              <li className="nav-button">
+                <Link to="/register">회원가입</Link>
+              </li>
             </>
           )}
         </ul>
