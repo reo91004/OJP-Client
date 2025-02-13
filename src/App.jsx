@@ -4,6 +4,7 @@ import './App.css'
 import axios from 'axios'
 import Box from './components/Navbar'
 import Navbar from './components/Navbar'
+import Sidebar from './components/Sidebar'
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -19,6 +20,11 @@ function App() {
         <Route path="/" element={ <div>
           <div className = "main-bg"></div>
         </div> } /> 
+        <Route path="/mypages" element = {
+          <>
+            <Sidebar></Sidebar>
+          </>
+        }/>
         <Route path="/login" element = {<>로그인페이지</>}/>
       
       </Routes>

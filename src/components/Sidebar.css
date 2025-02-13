@@ -1,0 +1,65 @@
+/* Sidebar.css */
+.sidebar {
+  position: fixed;     /* Remains fixed on the left */
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;       /* Full viewport height */
+  background-color: #fff;
+  border-right: 1px solid #e5e5e5;
+  overflow: hidden;    /* Or use 'auto' if you have lots of menu items */
+  padding-top: 20px;
+  margin-top: 70px;
+}
+
+.sidebar__title {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.sidebar__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 20px;
+}
+
+.sidebar__menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;            /* Space between icon & label */
+  height: 40px;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.sidebar__menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.sidebar__menu-item.active {
+  background-color: #E9F1FF;
+  color: #007bff;
+}
+
+.sidebar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+}
+
+.sidebar__support-label {
+  margin: 20px 0 8px 20px;
+  font-size: 12px;
+  color: #999;
+}
+
+.sidebar__content {
+  margin-left: 220px;  /* So the main content is to the right of the sidebar */
+  padding: 20px;
+}

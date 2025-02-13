@@ -11,7 +11,7 @@ function Navbar({ isLoggedIn }) {
         <ul className="navbar-menu-left">
           <li>문제</li>
           <li>게시판</li>
-          <li>마이페이지</li>
+          <li href ="/mypages">마이페이지</li>
         </ul>
       </div>
 
