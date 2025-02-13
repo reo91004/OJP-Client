@@ -1,13 +1,14 @@
-/* Sidebar.css */
+/* src/components/Sidebar.css */
+
 .sidebar {
-  position: fixed;     /* Remains fixed on the left */
+  position: fixed; /* Remains fixed on the left */
   top: 0;
   left: 0;
   width: 220px;
-  height: 100vh;       /* Full viewport height */
+  height: 100vh; /* Full viewport height */
   background-color: #fff;
   border-right: 1px solid #e5e5e5;
-  overflow: hidden;    /* Or use 'auto' if you have lots of menu items */
+  overflow: hidden; /* Or use 'auto' if you have lots of menu items */
   padding-top: 20px;
   margin-top: 70px;
 }
@@ -27,7 +28,7 @@
 .sidebar__menu-item {
   display: flex;
   align-items: center;
-  gap: 8px;            /* Space between icon & label */
+  gap: 8px; /* Space between icon & label */
   height: 40px;
   margin-bottom: 5px;
   color: #333;
@@ -42,7 +43,7 @@
 }
 
 .sidebar__menu-item.active {
-  background-color: #E9F1FF;
+  background-color: #e9f1ff;
   color: #007bff;
 }
 
@@ -60,6 +61,6 @@
 }
 
 .sidebar__content {
-  margin-left: 220px;  /* So the main content is to the right of the sidebar */
+  margin-left: 220px; /* So the main content is to the right of the sidebar */
   padding: 20px;
 }
