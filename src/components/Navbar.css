@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between; /* 좌우 섹션을 최대한 멀리 배치 */
   align-items: center; /* 세로 방향으로 중앙 정렬 */
-  height: 80px; /* 높이를 피그마 디자인에 맞게 115px로 유지 */
+  height: 80px; /* 높이를 피그마 디자인에 맞게 80px로 유지 */
   padding: 30px 115px; /* 상하 30px, 좌우 115px 패딩 (피그마 디자인 기준) */
   background-color: #fff;
   border-bottom: 1px solid #eee;
@@ -17,6 +17,8 @@
   /* 가로 스크롤바 방지 */
   overflow-x: hidden;
   box-sizing: border-box; /* padding, border가 width/height에 포함되도록 */
+  z-index: 10; /* Navbar의 z-index를 Sidebar보다 높게 설정 */
+  position: relative;
 }
 
 /* Left side: Logo + 문제/게시판/마이페이지 */
@@ -27,13 +29,13 @@
 
 .navbar-logo {
   height: 45px; /* 로고 높이를 조금 줄임 (45px) */
-  margin-right: 50px; /* 로고와 메뉴 사이 간격을 늘림 (50px) */
+  margin-right: 60px; /* 로고와 메뉴 사이 간격을 늘림 (60px) */
 }
 
 .navbar-menu-left {
   list-style: none;
   display: flex;
-  gap: 30px; /* 메뉴 항목 사이 간격 (피그마 디자인 기준) */
+  gap: 50px; /* 메뉴 항목 사이 간격 (피그마 디자인 기준) */
   margin: 0;
   padding: 0;
 }
@@ -70,7 +72,7 @@
 .navbar-menu-right {
   list-style: none;
   display: flex;
-  gap: 15px; /* 메뉴 항목 사이 간격 (피그마 디자인 기준)*/
+  gap: 30px; /* 메뉴 항목 사이 간격 (피그마 디자인 기준)*/
   margin: 0;
   padding: 0;
   align-items: center;

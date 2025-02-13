@@ -1,50 +1,56 @@
 /* src/components/Sidebar.css */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css');
 
 .sidebar {
-  position: fixed; /* Remains fixed on the left */
+  z-index: 1;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 220px;
-  height: 100vh; /* Full viewport height */
+  width: 230px;
+  height: 100vh;
   background-color: #fff;
   border-right: 1px solid #e5e5e5;
-  overflow: hidden; /* Or use 'auto' if you have lots of menu items */
-  padding-top: 20px;
-  margin-top: 70px;
+  overflow-y: auto;
+  padding-top: 115px;
+  box-sizing: border-box;
+  font-family: 'Pretendard Variable', sans-serif;
 }
 
 .sidebar__title {
-  margin-left: 20px;
-  margin-bottom: 10px;
-  font-weight: bold;
+  display: none;
 }
 
 .sidebar__menu {
   list-style: none;
   margin: 0;
-  padding: 0 0 0 20px;
+  padding: 0;
 }
 
 .sidebar__menu-item {
   display: flex;
   align-items: center;
-  gap: 8px; /* Space between icon & label */
-  height: 40px;
-  margin-bottom: 5px;
+  width: 70%;
+  gap: 8px;
+  height: 48px;
+  padding-left: 30px;
   color: #333;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, border-radius 0.2s; /* transition에 border-radius 추가 */
+  margin-bottom: 5px;
+  margin-left: 5%;
+  border-radius: 0px; /* 기본 border-radius는 0 */
 }
 
 .sidebar__menu-item:hover {
   background-color: #f5f5f5;
+  border-radius: 24px; /* 호버 시 border-radius를 24px로 (둥글게) */
 }
 
 .sidebar__menu-item.active {
   background-color: #e9f1ff;
   color: #007bff;
+  border-radius: 24px;
 }
 
 .sidebar__icon {
@@ -52,15 +58,28 @@
   align-items: center;
   justify-content: center;
   width: 20px;
+  margin-right: 8px;
 }
 
 .sidebar__support-label {
-  margin: 20px 0 8px 20px;
+  font-family: Pretendard Variable;
+  margin: 30px 0 8px 30px;
+  margin-left: 15%;
   font-size: 12px;
   color: #999;
+  font-weight: 700;
 }
 
 .sidebar__content {
-  margin-left: 220px; /* So the main content is to the right of the sidebar */
+  margin-left: 250px;
   padding: 20px;
+}
+
+.sidebar__menu-item a {
+  text-decoration: none;
+  color: inherit;
+  display: flex; /* a 태그를 flexbox 컨테이너로 만들어 */
+  align-items: center; /* 수직 중앙 정렬 */
+  width: 100%; /* 부모 요소(.sidebar__menu-item)의 전체 너비를 차지하도록 */
+  height: 100%;
 }
