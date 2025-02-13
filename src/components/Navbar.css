@@ -1,0 +1,85 @@
+/* 1) Import your desired Korean web font (e.g., Noto Sans KR) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+
+.navbar {
+  /* Center the navbar and give it more horizontal space */
+  max-width: 100%;
+  height: 60px;
+  margin: 0 auto;
+  padding: 0 5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+
+  font-family: 'Noto Sans KR', sans-serif; /* Apply the font */
+  font-size: 13px;
+}
+
+/* Left side: Logo + 문제/게시판/마이페이지 */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 40px;
+  margin-right: 4rem;
+}
+
+.navbar-menu-left {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem; /* Space between menu items */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu-left li {
+  cursor: pointer;
+  color: #333;
+}
+
+.navbar-menu-left li:hover {
+  color: #2A4AC2;
+}
+
+
+/* Right side: divider + API/고객센터 + 로그인/로그아웃 */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Vertical divider */
+.vertical-divider {
+  width: 1px;
+  height: 24px;
+  background-color: #ccc;
+  margin-right: 1rem; /* Space before the right-side menu items */
+}
+
+.navbar-menu-right {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu-right li {
+  cursor: pointer;
+  color: #333;
+}
+
+.navbar-menu-right li:hover {
+  color: #2A4AC2;
+}
+
+.nav-button {
+  font-weight: 500;
+}
