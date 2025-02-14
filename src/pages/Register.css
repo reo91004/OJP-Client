@@ -1,0 +1,86 @@
+/* Container that centers everything */
+.register-container {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+/* Logo and title styles */
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+
+
+}
+
+.ojp-logo {
+  width: 172px;       /* Adjust as needed */
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.logo-section h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #007BFF; /* Example color */
+}
+
+.logo-section h2 {
+  margin: 0.5rem 0 0;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #555;
+}
+
+/* Form wrapper */
+.form-section {
+  width: 350px; /* Adjust based on your design */
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+
+}
+
+/* Inputs */
+.register-input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 1rem;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+
+  box-sizing: border-box;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Button */
+.register-button {
+  width: 100%;
+  height: 40px;
+  background-color: #007BFF; /* Example color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  background-color: #0056b3; /* Darken on hover */
+}

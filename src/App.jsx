@@ -5,6 +5,7 @@ import axios from 'axios'
 import Box from './components/Navbar'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
+import Register from './pages/Register'
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -30,7 +31,7 @@ function App() {
         <Route path="/api" element={<></>}/>
         <Route path="/customer-service" element={<></>}/>
         <Route path="/login" element = {<>로그인페이지</>}/>
-        <Route path="/register" element={<></>}/>
+        <Route path="/register" element={<Register/>}/>
       </Routes>
     </>
   )
