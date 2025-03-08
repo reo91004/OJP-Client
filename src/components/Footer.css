@@ -1,0 +1,58 @@
+/* src/components/Footer.css */
+.footer {
+  background-color: #2b3642;
+  color: #fff;
+  padding: 40px 0 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footer-logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+  filter: brightness(0) invert(1); /* SVG 로고를 흰색으로 변환 */
+}
+
+.footer-tagline {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+
+.footer-credit {
+  margin-bottom: 30px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.footer-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}

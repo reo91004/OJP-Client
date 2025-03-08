@@ -1,32 +1,40 @@
-/* 1) Import your desired Korean web font (e.g., Noto Sans KR) */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+/* src/components/Navbar.css */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
 
 .navbar {
   max-width: 100%;
-  height: 60px;
+  height: 70px;
   margin: 0 auto;
-  padding: 0 5rem;
+  padding: 0 8%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   background-color: #fff;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f0f0f0;
 
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .navbar-left,
 .navbar-right {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .navbar-logo {
   height: 40px;
-  margin-right: 4rem;
+  margin-right: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
 }
 
 /* Remove default Link styles */
@@ -40,31 +48,104 @@
 .navbar-menu-right {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   margin: 0;
   padding: 0;
+  height: 100%;
+  align-items: center;
 }
 
 .navbar-menu-left li,
-.navbar-menu-right li {
+.navbar-menu-right li:not(.nav-button) {
   cursor: pointer;
   color: #333;
+  position: relative;
+  padding: 5px 0;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-menu-left li::after,
+.navbar-menu-right li:not(.nav-button)::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #1581ff;
+  transition: width 0.3s ease;
 }
 
 .navbar-menu-left li:hover,
 .navbar-menu-right li:hover {
-  color: #2a4ac2;
+  color: #1581ff;
+}
+
+.navbar-menu-left li:hover::after,
+.navbar-menu-right li:not(.nav-button):hover::after {
+  width: 100%;
 }
 
 .vertical-divider {
   width: 1px;
   height: 24px;
-  background-color: #ccc;
-  margin-right: 1rem;
+  background-color: #eee;
+  margin-right: 1.5rem;
 }
 
-.nav-button {
+/* 로그인 버튼 (일반 메뉴와 동일하게) */
+.navbar-menu-right li.nav-button:first-child {
   font-weight: 500;
+  padding: 5px 0;
+  color: #333;
+  position: relative;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+/* 로그인 버튼 hover 효과 */
+.navbar-menu-right li.nav-button:first-child:hover {
+  color: #1581ff;
+}
+
+/* 로그인 버튼 밑줄 효과 */
+.navbar-menu-right li.nav-button:first-child::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #1581ff;
+  transition: width 0.3s ease;
+}
+
+.navbar-menu-right li.nav-button:first-child:hover::after {
+  width: 100%;
+}
+
+/* 회원가입 버튼 (버튼 형태 유지) */
+.navbar-menu-right li.nav-button:last-child {
+  padding: 8px 16px;
+  border-radius: 30px;
+  background-color: #1581ff;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-menu-right li.nav-button:last-child:hover {
+  background-color: #0068e1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(21, 129, 255, 0.3);
 }
 
 /* User Profile Dropdown */
@@ -75,11 +156,13 @@
 .profile-trigger {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
   cursor: pointer;
-  padding: 5px 10px;
-  border-radius: 4px;
+  padding: 6px 15px;
+  height: 36px;
+  border-radius: 30px;
   background-color: #f5f5f5;
+  transition: all 0.2s ease;
 }
 
 .profile-trigger:hover {
@@ -93,31 +176,39 @@
 .profile-icon {
   font-size: 10px;
   color: #777;
+  transition: transform 0.2s ease;
+}
+
+.profile-trigger:hover .profile-icon {
+  transform: translateY(2px);
 }
 
 .profile-dropdown {
   position: absolute;
   top: 100%;
   right: 0;
-  width: 150px;
+  width: 170px;
   margin-top: 10px;
   background-color: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   z-index: 10000;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease;
 }
 
 .dropdown-item {
   display: block;
-  padding: 10px 15px;
+  padding: 12px 15px;
   color: #333;
-  font-size: 13px;
-  transition: background-color 0.2s;
+  font-size: 14px;
+  transition: all 0.2s;
 }
 
 .dropdown-item:hover {
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
+  color: #1581ff;
 }
 
 .dropdown-item.logout {
@@ -126,13 +217,20 @@
 }
 
 .dropdown-item.logout:hover {
-  background-color: #ffebee;
+  background-color: #fff1f1;
 }
 
 .dropdown-divider {
   height: 1px;
-  background-color: #e5e5e5;
+  background-color: #eee;
   margin: 5px 0;
+}
+
+/* 스크롤 시 네비게이션 바 스타일 변경 */
+.navbar.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 65px;
+  transition: all 0.3s ease;
 }
 
 /* ------------------------------
@@ -148,22 +246,22 @@
 
 .hamburger span {
   display: block;
-  width: 30px;
-  height: 3px;
+  width: 28px;
+  height: 2px;
   background-color: #333;
-  border-radius: 2px;
+  border-radius: 4px;
   transition: all 0.3s ease-in-out;
 }
 
 /* 햄버거 아이콘 클릭 시 애니메이션 */
 .hamburger.open span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
 .hamburger.open span:nth-child(2) {
   opacity: 0;
 }
 .hamburger.open span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ------------------------------
@@ -177,7 +275,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4); /* 어두운 배경 */
+  background-color: rgba(0, 0, 0, 0.5); /* 어두운 배경 */
   display: flex;
   justify-content: flex-end; /* 오른쪽 정렬 */
   z-index: 10000;
@@ -195,13 +293,13 @@
 /* 오른쪽에서 슬라이드되는 사이드 메뉴 */
 .mobile-menu-content {
   width: 80%;
-  max-width: 400px;
+  max-width: 360px;
   height: 100vh;
   background-color: #fff;
   transform: translateX(100%); /* 처음엔 화면 밖에 위치 */
   transition: transform 0.3s ease-in-out; /* 오른쪽에서 부드럽게 이동 */
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-  padding: 2rem;
+  box-shadow: -2px 0 15px rgba(0, 0, 0, 0.2);
+  padding: 3rem 2rem;
 }
 
 /* 메뉴가 열렸을 때 오른쪽에서 나타남 */
@@ -217,24 +315,72 @@
 }
 
 .mobile-menu-content ul li {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
   font-size: 16px;
+  font-weight: 500;
   color: #333;
   cursor: pointer;
   transition: color 0.2s;
+  position: relative;
+  padding-left: 10px;
+}
+
+.mobile-menu-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 0;
+  background-color: #1581ff;
+  transition: height 0.2s ease;
 }
 
 .mobile-menu-content ul li:hover {
-  color: #2a4ac2;
+  color: #1581ff;
+}
+
+.mobile-menu-content ul li:hover::before {
+  height: 80%;
 }
 
 .horizontal-bar {
-  background-color: #ccc;
-  color: #ccc;
-  opacity: 0.3;
+  height: 1px;
+  background-color: #eee;
+  margin: 30px 0;
+  opacity: 0.8;
+}
 
-  margin-top: 40px;
-  margin-bottom: 40px;
+/* Active 상태의 메뉴 항목 */
+.navbar-menu-left li.active,
+.navbar-menu-right li.active:not(.nav-button) {
+  color: #1581ff;
+}
+
+.navbar-menu-left li.active::after,
+.navbar-menu-right li.active:not(.nav-button)::after {
+  width: 100%;
+}
+
+.mobile-menu-content ul li.active {
+  color: #1581ff;
+}
+
+.mobile-menu-content ul li.active::before {
+  height: 80%;
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ------------------------------
@@ -250,5 +396,9 @@
   /* 햄버거 아이콘 보이게 */
   .hamburger {
     display: flex;
+  }
+
+  .navbar {
+    padding: 0 5%;
   }
 }

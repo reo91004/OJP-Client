@@ -1,0 +1,322 @@
+/* src/pages/HomePage.css */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+.home-container {
+  font-family: 'Noto Sans KR', sans-serif;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 대문(Hero) 섹션 스타일 */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 500px;
+  padding: 50px 8%;
+  background-color: #f4fbfd;
+  position: relative;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 550px;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.hero-description {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.hero-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.hero-button.primary {
+  background-color: #1581ff;
+  color: white;
+  border: none;
+}
+
+.hero-button.primary:hover {
+  background-color: #0068e1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(21, 129, 255, 0.3);
+}
+
+.hero-button.secondary {
+  background-color: transparent;
+  color: #1581ff;
+  border: 2px solid #1581ff;
+}
+
+.hero-button.secondary:hover {
+  background-color: rgba(21, 129, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.hero-illustration {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+}
+
+.math-illustration {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.1));
+}
+
+/* SVG 텍스트 스타일 */
+.math-illustration text {
+  font-family: 'Noto Sans KR', serif;
+  font-weight: 500;
+}
+
+/* 서비스 특징 섹션 */
+.features-section {
+  padding: 80px 8%;
+  background-color: white;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #1a1a1a;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.feature-card {
+  background-color: #f9f9f9;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.feature-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* 차별점 섹션 */
+.difference-section {
+  padding: 80px 8%;
+  background-color: #f7f9fc;
+}
+
+.difference-content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+.difference-text {
+  flex: 1;
+}
+
+.difference-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.difference-list li {
+  margin-bottom: 30px;
+}
+
+.difference-list li strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.difference-list li p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.difference-image {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comparison-chart {
+  width: 100%;
+  max-width: 500px;
+}
+
+.chart-group {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.chart-label {
+  font-size: 14px;
+  font-weight: 500;
+  dominant-baseline: middle;
+}
+
+.chart-value {
+  font-size: 16px;
+  font-weight: 600;
+  dominant-baseline: middle;
+}
+
+.chart-title {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+/* CTA 섹션 */
+.cta-section {
+  padding: 80px 8%;
+  background-color: #1581ff;
+  text-align: center;
+  color: white;
+}
+
+.cta-section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.cta-section p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: white;
+  color: #1581ff;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 992px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 5%;
+  }
+
+  .hero-content {
+    margin-bottom: 40px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .difference-content {
+    flex-direction: column;
+  }
+
+  .difference-text,
+  .difference-image {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .cta-section h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-button {
+    width: 100%;
+  }
+}

@@ -1,15 +1,15 @@
 /* Sidebar.css */
 .sidebar {
-  position: fixed;     /* Remains fixed on the left */
-  top: 0;
+  position: fixed; /* Remains fixed on the left */
+  /* top: 70px; */
   left: 0;
   width: 220px;
-  height: 100vh;       /* Full viewport height */
-  background-color: #fff;
+  height: calc(100vh - 70px); /* 네비게이션 바 높이를 제외한 나머지 영역 */
+  /* background-color: #fff; */
   border-right: 1px solid #e5e5e5;
-  overflow: hidden;    /* Or use 'auto' if you have lots of menu items */
+  overflow: hidden; /* Or use 'auto' if you have lots of menu items */
   padding-top: 20px;
-  margin-top: 70px;
+  z-index: 100; /* 다른 요소보다 앞에 표시되도록 z-index 추가 */
 }
 
 .sidebar__title {
@@ -70,8 +70,10 @@
 }
 
 .sidebar__content {
-  margin-left: 250px;
+  margin-left: 220px; /* 사이드바 너비만큼 여백 확보 */
   padding: 20px;
+  box-sizing: border-box;
+  min-height: calc(100vh - 70px); /* 네비게이션 바 높이를 제외한 전체 높이 */
 }
 
 .sidebar__menu-item a {

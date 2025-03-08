@@ -10,6 +10,7 @@ import ProblemList from './pages/ProblemList';
 import Board from './pages/Board';
 import WritePost from './pages/WritePost';
 import PostDetail from './pages/PostDetail';
+import HomePage from './pages/HomePage'; // 새로 추가한 HomePage 컴포넌트 import
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -30,14 +31,8 @@ function App() {
       <Navbar isLoggedIn={loggedIn} onLogout={handleLogout} />
 
       <Routes>
-        <Route
-          path='/'
-          element={
-            <div>
-              <div className='main-bg'></div>
-            </div>
-          }
-        />
+        {/* 루트 경로에 HomePage 컴포넌트 연결 */}
+        <Route path='/' element={<HomePage />} />
         <Route path='/problems' element={<ProblemList />} />
         <Route path='/board' element={<Board />} />
         <Route path='/board/:postId' element={<PostDetail />} />

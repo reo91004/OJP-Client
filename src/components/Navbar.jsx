@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../assets/logo-ojp.svg';
 
 function Navbar({ isLoggedIn, onLogout }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [username, setUsername] = useState('사용자');
+  const [scrolled, setScrolled] = useState(false);
 
   // 로그인 상태가 변경될 때 사용자 정보 설정
   useEffect(() => {
@@ -17,12 +19,33 @@ function Navbar({ isLoggedIn, onLogout }) {
     }
   }, [isLoggedIn]);
 
+  // 스크롤 이벤트 감지
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
+    // 메뉴가 열릴 때 스크롤 방지
+    if (!isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   };
 
   const handleOverlayClick = () => {
     setIsMenuOpen(false);
+    document.body.style.overflow = 'auto';
   };
 
   const handleMenuClick = (e) => {
@@ -41,20 +64,29 @@ function Navbar({ isLoggedIn, onLogout }) {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const closeDropdown = () => {
+    setDropdownOpen(false);
+  };
+
+  // 현재 경로를 확인해서 활성화된 메뉴 아이템 표시
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
   return (
-    <nav className='navbar'>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className='navbar-left'>
         <Link to='/'>
           <img src={logo} alt='OJP Logo' className='navbar-logo' />
         </Link>
         <ul className='navbar-menu-left'>
-          <li>
+          <li className={isActive('/problems') ? 'active' : ''}>
             <Link to='/problems'>문제</Link>
           </li>
-          <li>
+          <li className={isActive('/board') ? 'active' : ''}>
             <Link to='/board'>게시판</Link>
           </li>
-          <li>
+          <li className={isActive('/mypages') ? 'active' : ''}>
             <Link to='/mypages'>마이페이지</Link>
           </li>
         </ul>
@@ -63,10 +95,10 @@ function Navbar({ isLoggedIn, onLogout }) {
       <div className='navbar-right'>
         <div className='vertical-divider'></div>
         <ul className='navbar-menu-right'>
-          <li>
+          <li className={isActive('/api') ? 'active' : ''}>
             <Link to='/api'>API</Link>
           </li>
-          <li>
+          <li className={isActive('/customer-service') ? 'active' : ''}>
             <Link to='/customer-service'>고객센터</Link>
           </li>
           {isLoggedIn ? (
@@ -76,18 +108,43 @@ function Navbar({ isLoggedIn, onLogout }) {
                 <span className='profile-icon'>▾</span>
               </div>
               {dropdownOpen && (
-                <div className='profile-dropdown'>
-                  <Link to='/mypages' className='dropdown-item'>
-                    마이페이지
-                  </Link>
-                  <Link to='/settings' className='dropdown-item'>
-                    설정
-                  </Link>
-                  <div className='dropdown-divider'></div>
-                  <div className='dropdown-item logout' onClick={handleLogout}>
-                    로그아웃
+                <>
+                  <div className='profile-dropdown'>
+                    <Link
+                      to='/mypages'
+                      className='dropdown-item'
+                      onClick={closeDropdown}
+                    >
+                      마이페이지
+                    </Link>
+                    <Link
+                      to='/settings'
+                      className='dropdown-item'
+                      onClick={closeDropdown}
+                    >
+                      설정
+                    </Link>
+                    <div className='dropdown-divider'></div>
+                    <div
+                      className='dropdown-item logout'
+                      onClick={handleLogout}
+                    >
+                      로그아웃
+                    </div>
                   </div>
-                </div>
+                  {/* 드롭다운 외부 클릭 감지를 위한 투명 오버레이 */}
+                  <div
+                    style={{
+                      position: 'fixed',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      zIndex: 9999,
+                    }}
+                    onClick={closeDropdown}
+                  />
+                </>
               )}
             </li>
           ) : (
