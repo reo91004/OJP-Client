@@ -1,9 +1,18 @@
 // src/pages/Board.jsx
 import React, { useState, useEffect } from 'react';
 import './Board.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from '../states/authSlice';
+import LoginRequiredModal from '../components/LoginRequiredModal';
 
 function Board() {
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  // 로그인 필요 모달 상태
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
   // 게시판 카테고리
   const categories = [
     '전체',
@@ -143,6 +152,15 @@ function Board() {
     }, 0);
   };
 
+  // 글쓰기 버튼 핸들러
+  const handleWritePost = () => {
+    if (isLoggedIn) {
+      navigate('/write-post');
+    } else {
+      setShowLoginModal(true);
+    }
+  };
+
   // 현재 페이지에 표시할 게시글 계산
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -190,9 +208,9 @@ function Board() {
               검색
             </button>
           </form>
-          <Link to='/write-post' className='write-button'>
+          <button onClick={handleWritePost} className='write-button'>
             글쓰기
-          </Link>
+          </button>
         </div>
       </div>
 
@@ -300,6 +318,13 @@ function Board() {
           다음
         </button>
       </div>
+
+      {/* 로그인 모달 */}
+      <LoginRequiredModal
+        isOpen={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+        message='게시글 작성은 로그인 후 이용할 수 있습니다.'
+      />
     </div>
   );
 }

@@ -1,23 +1,22 @@
+// src/components/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectIsLoggedIn, selectUser, logout } from '../states/authSlice';
 import './Navbar.css';
 import logo from '../assets/logo-ojp.svg';
 
-function Navbar({ isLoggedIn, onLogout }) {
+function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const user = useSelector(selectUser);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [username, setUsername] = useState('사용자');
   const [scrolled, setScrolled] = useState(false);
-
-  // 로그인 상태가 변경될 때 사용자 정보 설정
-  useEffect(() => {
-    if (isLoggedIn) {
-      // 실제 API에서 가져와야 함
-      setUsername('박용성');
-    }
-  }, [isLoggedIn]);
 
   // 스크롤 이벤트 감지
   useEffect(() => {
@@ -53,9 +52,7 @@ function Navbar({ isLoggedIn, onLogout }) {
   };
 
   const handleLogout = () => {
-    if (onLogout) {
-      onLogout();
-    }
+    dispatch(logout());
     setDropdownOpen(false);
     navigate('/');
   };
@@ -104,7 +101,7 @@ function Navbar({ isLoggedIn, onLogout }) {
           {isLoggedIn ? (
             <li className='user-profile'>
               <div className='profile-trigger' onClick={toggleDropdown}>
-                <span className='profile-name'>{username}</span>
+                <span className='profile-name'>{user?.name || '사용자'}</span>
                 <span className='profile-icon'>▾</span>
               </div>
               {dropdownOpen && (

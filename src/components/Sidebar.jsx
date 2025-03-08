@@ -159,11 +159,11 @@ function Sidebar() {
   // 사용자 프로필 데이터
   const userProfile = {
     name: '박용성',
-    email: 'park.yongsung@example.com',
-    school: '서울 과학고등학교',
+    email: 'reo91004@gmail.com',
+    school: '장훈고등학교',
     grade: '고등학교 3학년',
     joinDate: '2023-09-15',
-    subscription: '프리미엄',
+    subscription: '무료',
   };
 
   // 각 탭 내용 렌더링 함수

@@ -1,7 +1,8 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit'
-
-/// 이곳에 state 작성
+import { configureStore } from '@reduxjs/toolkit';
+import authReducer from './authSlice';
 
 export default configureStore({
-  reducer: { }
-})
+  reducer: {
+    auth: authReducer,
+  },
+});

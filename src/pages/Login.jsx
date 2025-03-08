@@ -1,14 +1,28 @@
 // src/pages/Login.jsx
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, selectIsLoggedIn } from '../states/authSlice';
 import './Login.css';
 import logoOjp from '../assets/logo-ojp.svg';
 
-function Login({ onLogin }) {
+function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+
+  // 이미 로그인되어 있으면 홈으로 리다이렉트
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/');
+    }
+  }, [isLoggedIn, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,10 +37,17 @@ function Login({ onLogin }) {
     // 임의의 이메일과 비밀번호로 로그인 성공 처리
     if (email === 'test@example.com' && password === 'password') {
       // 로그인 성공
-      if (onLogin) {
-        onLogin();
-      }
-      navigate('/');
+      const userData = {
+        name: '박용성',
+        email: email,
+        profilePic: null,
+      };
+
+      dispatch(login(userData));
+
+      // 이전 페이지로 이동 또는 홈으로 이동
+      const from = location.state?.from || '/';
+      navigate(from);
     } else {
       setError('이메일 또는 비밀번호가 일치하지 않습니다.');
     }
@@ -59,7 +80,12 @@ function Login({ onLogin }) {
           />
           <div className='login-options'>
             <div className='remember-me'>
-              <input type='checkbox' id='remember' />
+              <input
+                type='checkbox'
+                id='remember'
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+              />
               <label htmlFor='remember'>로그인 상태 유지</label>
             </div>
             <a href='#' className='forgot-password'>
