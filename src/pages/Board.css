@@ -1,0 +1,296 @@
+/* src/pages/Board.css */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+.board-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.board-header {
+  margin-bottom: 30px;
+}
+
+.board-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* 카테고리 탭 스타일 */
+.category-tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.category-tab {
+  padding: 12px 24px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.2s;
+}
+
+.category-tab:hover {
+  color: #333;
+}
+
+.category-tab.active {
+  color: #007bff;
+  border-bottom: 3px solid #007bff;
+}
+
+/* 검색 영역 스타일 */
+.search-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+}
+
+.search-input {
+  width: 250px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.search-button {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-button:hover {
+  background-color: #e0e0e0;
+}
+
+.write-button {
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.write-button:hover {
+  background-color: #0069d9;
+}
+
+/* 게시글 테이블 스타일 */
+.posts-table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-top: 2px solid #333;
+  margin-bottom: 20px;
+}
+
+.posts-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.posts-table th {
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.posts-table td {
+  padding: 15px 10px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+/* 각 열의 너비 조정 */
+.post-id {
+  width: 8%;
+}
+
+.post-category {
+  width: 15%;
+}
+
+.post-title {
+  width: auto;
+  text-align: left !important;
+}
+
+.post-title a {
+  color: #333;
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  color: #007bff;
+}
+
+.post-author {
+  width: 12%;
+}
+
+.post-date {
+  width: 12%;
+}
+
+.post-views {
+  width: 10%;
+}
+
+/* 카테고리 배지 스타일 */
+.category-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+.category-badge.공지사항 {
+  background-color: #dc3545; /* 빨간색 */
+}
+
+.category-badge.질문 {
+  background-color: #28a745; /* 녹색 */
+}
+
+.category-badge.팁과노하우 {
+  background-color: #17a2b8; /* 청록색 */
+}
+
+.category-badge.자유게시판 {
+  background-color: #6c757d; /* 회색 */
+}
+
+.category-badge.버그제보 {
+  background-color: #fd7e14; /* 주황색 */
+}
+
+/* 댓글 수 스타일 */
+.comment-count {
+  margin-left: 5px;
+  color: #007bff;
+  font-weight: 500;
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 10px;
+}
+
+.pagination-button {
+  padding: 8px 16px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #e5e5e5;
+}
+
+.pagination-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pagination-pages {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pagination-page:hover {
+  background-color: #f5f5f5;
+}
+
+.pagination-page.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  .search-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .search-form {
+    width: 100%;
+  }
+
+  .search-input {
+    flex-grow: 1;
+  }
+
+  .write-button {
+    align-self: flex-end;
+  }
+
+  .post-date,
+  .post-views {
+    display: none;
+  }
+}
