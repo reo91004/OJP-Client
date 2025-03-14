@@ -614,7 +614,7 @@ function Sidebar() {
   };
 
   return (
-    <>
+    <div className='page-container'>
       {/* 사이드바 */}
       <nav className='sidebar'>
         <ul className='sidebar__menu'>
@@ -651,7 +651,7 @@ function Sidebar() {
 
       {/* 콘텐츠 영역 */}
       <div className='sidebar__content'>{renderTabContent()}</div>
-    </>
+    </div>
   );
 }
 

@@ -6,9 +6,10 @@
   flex: 1;
   padding: 20px 30px;
   background-color: #f8f9fa;
-  margin-left: 220px; /* 사이드바 너비만큼 여백 */
-  min-height: calc(100vh - 60px); /* 네비게이션 바 높이 제외 */
+  min-height: 100vh; /* 전체 높이로 변경 */
   font-family: 'Noto Sans KR', sans-serif;
+  overflow-y: auto; /* 내용이 많을 경우 스크롤 가능하도록 */
+  box-sizing: border-box;
 }
 
 /* 공통 제목 스타일 */
@@ -19,6 +20,32 @@
   margin-bottom: 25px;
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 10px;
+}
+
+/* 페이지 컨테이너 스타일 */
+.page-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* 반응형 설정 */
+@media (max-width: 768px) {
+  .sidebar__content {
+    padding: 15px;
+    margin-left: 0;
+  }
+
+  .page-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: unset;
+  }
 }
 
 /* ========== 학습 리포트 스타일 ========== */

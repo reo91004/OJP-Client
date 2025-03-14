@@ -32,7 +32,12 @@ function App() {
           path='/mypages'
           element={
             <RequireAuth>
-              <Sidebar />
+              <div
+                className='mypage-wrapper'
+                style={{ minHeight: 'calc(100vh - 70px)' }}
+              >
+                <Sidebar />
+              </div>
             </RequireAuth>
           }
         />
