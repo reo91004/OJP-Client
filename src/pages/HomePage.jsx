@@ -29,7 +29,7 @@ function HomePage() {
           </div>
         </div>
         <div className='hero-illustration'>
-          {/* SVG 일러스트레이션 */}
+          {/* SVG 일러스트레이션 - 이미지 기반으로 개선 */}
           <svg
             width='400'
             height='300'
@@ -37,80 +37,26 @@ function HomePage() {
             xmlns='http://www.w3.org/2000/svg'
             className='math-illustration'
           >
+            {/* 배경 */}
             <rect width='400' height='300' fill='#F4FBFD' rx='8' />
-
-            {/* 그래프 요소 */}
-            <path
-              d='M50 250 Q 125 100 200 250 T 350 250'
-              stroke='#1581FF'
-              strokeWidth='3'
-              fill='none'
-            />
 
             {/* 그리드 라인 */}
             <g stroke='#ddd' strokeWidth='0.5'>
-              {[50, 100, 150, 200, 250, 300, 350].map((x, i) => (
+              {/* 수직 그리드 라인 */}
+              {Array.from({ length: 8 }, (_, i) => 50 + i * 40).map((x, i) => (
                 <line key={`vl-${i}`} x1={x} y1='50' x2={x} y2='250' />
               ))}
-              {[50, 100, 150, 200, 250].map((y, i) => (
+              {/* 수평 그리드 라인 */}
+              {Array.from({ length: 6 }, (_, i) => 50 + i * 40).map((y, i) => (
                 <line key={`hl-${i}`} x1='50' y1={y} x2='350' y2={y} />
               ))}
             </g>
-
-            {/* 수학 기호와 텍스트 - 벡터 경로로 변환 */}
-            <path
-              d='M80 80 C80 85, 80 90, 83 90 S86 85, 86 75 S83 50, 76 50 S70 60, 70 65'
-              stroke='#333'
-              strokeWidth='1.5'
-              fill='none'
-            />
-            <text
-              x='110'
-              y='100'
-              fill='#333'
-              style={{ fontFamily: 'serif', fontSize: '18px' }}
-            >
-              f(x)dx
-            </text>
-
-            <path
-              d='M240 70 L260 70 M240 75 L260 75 M240 80 L260 80'
-              stroke='#333'
-              strokeWidth='1.5'
-            />
-            <text
-              x='245'
-              y='95'
-              fill='#333'
-              style={{ fontFamily: 'serif', fontSize: '12px' }}
-            >
-              i=1
-            </text>
-            <text
-              x='263'
-              y='75'
-              fill='#333'
-              style={{ fontFamily: 'serif', fontSize: '14px' }}
-            >
-              n
-            </text>
-
-            <path
-              d='M300 150 C295 145, 292 155, 300 160 C308 155, 305 145, 300 150'
-              stroke='#333'
-              strokeWidth='1.5'
-              fill='none'
-            />
-
-            {/* 좌표 점 */}
-            <circle cx='125' cy='150' r='5' fill='#FF5252' />
-            <circle cx='275' cy='200' r='5' fill='#FF5252' />
 
             {/* 좌표축 */}
             <line
               x1='50'
               y1='250'
-              x2='350'
+              x2='370'
               y2='250'
               stroke='#333'
               strokeWidth='2'
@@ -119,14 +65,53 @@ function HomePage() {
               x1='50'
               y1='250'
               x2='50'
-              y2='50'
+              y2='30'
               stroke='#333'
               strokeWidth='2'
             />
 
             {/* 화살표 */}
-            <polygon points='350,250 345,245 345,255' fill='#333' />
-            <polygon points='50,50 45,55 55,55' fill='#333' />
+            <polygon points='370,250 363,246 363,254' fill='#333' />
+            <polygon points='50,30 46,37 54,37' fill='#333' />
+
+            {/* 그래프 요소 - 사인파 곡선 - 참고 이미지와 유사하게 수정 */}
+            <path
+              d='M50 180 L90 120 Q125 70, 140 120 T200 180 Q235 230, 260 120 T340 180'
+              stroke='#1581FF'
+              strokeWidth='3'
+              fill='none'
+            />
+
+            {/* 수학 기호와 텍스트 - 참고 이미지에 맞게 배치 */}
+            <text x='85' y='95' fill='#333' fontFamily='serif' fontSize='14'>
+              ∫f(x)dx
+            </text>
+
+            <text x='250' y='95' fill='#333' fontFamily='serif' fontSize='14'>
+              <tspan>Σ</tspan>
+              <tspan fontSize='10' dy='-5'>
+                n
+              </tspan>
+              <tspan fontSize='10' dy='10'>
+                i=1
+              </tspan>
+            </text>
+
+            <text x='320' y='130' fill='#333' fontFamily='serif' fontSize='18'>
+              ∞
+            </text>
+
+            {/* 빨간 점 - 참고 이미지와 동일하게 배치 */}
+            <circle cx='140' cy='120' r='5' fill='#FF5252' />
+            <circle cx='260' cy='120' r='5' fill='#FF5252' />
+
+            {/* 축 레이블 */}
+            <text x='210' y='275' fill='#333' textAnchor='middle' fontSize='14'>
+              x
+            </text>
+            <text x='30' y='140' fill='#333' textAnchor='middle' fontSize='14'>
+              y
+            </text>
           </svg>
         </div>
       </section>
@@ -197,7 +182,42 @@ function HomePage() {
           <div className='difference-image'>
             <div className='comparison-chart'>
               {/* 막대 그래프를 SVG로 구현 */}
-              <svg width='400' height='300' viewBox='0 0 400 300'>
+              <svg width='400' height='320' viewBox='0 0 400 320'>
+                {/* 차트 제목 */}
+                <text
+                  x='200'
+                  y='30'
+                  textAnchor='middle'
+                  fill='#333'
+                  fontWeight='bold'
+                  fontSize='16'
+                >
+                  학습자 만족도 비교
+                </text>
+
+                {/* Y축 레이블 */}
+                <text
+                  x='20'
+                  y='150'
+                  textAnchor='middle'
+                  fill='#555'
+                  fontSize='12'
+                  transform='rotate(-90, 20, 150)'
+                >
+                  만족도 (%)
+                </text>
+
+                {/* X축 레이블 */}
+                <text
+                  x='200'
+                  y='290'
+                  textAnchor='middle'
+                  fill='#555'
+                  fontSize='12'
+                >
+                  학습 플랫폼
+                </text>
+
                 <g className='chart-group'>
                   {/* OJP 막대 */}
                   <rect
@@ -222,6 +242,7 @@ function HomePage() {
                     y='50'
                     textAnchor='middle'
                     fill='#1581FF'
+                    fontWeight='bold'
                     className='chart-value'
                   >
                     90%
@@ -251,6 +272,7 @@ function HomePage() {
                     y='80'
                     textAnchor='middle'
                     fill='#1581FF'
+                    fontWeight='bold'
                     className='chart-value'
                   >
                     75%
@@ -280,6 +302,7 @@ function HomePage() {
                     y='100'
                     textAnchor='middle'
                     fill='#1581FF'
+                    fontWeight='bold'
                     className='chart-value'
                   >
                     65%
@@ -309,13 +332,106 @@ function HomePage() {
                     y='130'
                     textAnchor='middle'
                     fill='#1581FF'
+                    fontWeight='bold'
                     className='chart-value'
                   >
                     50%
                   </text>
+
+                  {/* X축 */}
+                  <line
+                    x1='30'
+                    y1='240'
+                    x2='370'
+                    y2='240'
+                    stroke='#999'
+                    strokeWidth='1'
+                  />
+
+                  {/* Y축 */}
+                  <line
+                    x1='30'
+                    y1='240'
+                    x2='30'
+                    y2='40'
+                    stroke='#999'
+                    strokeWidth='1'
+                  />
+
+                  {/* Y축 눈금 */}
+                  <line
+                    x1='25'
+                    y1='60'
+                    x2='30'
+                    y2='60'
+                    stroke='#999'
+                    strokeWidth='1'
+                  />
+                  <text
+                    x='20'
+                    y='65'
+                    textAnchor='end'
+                    fill='#666'
+                    fontSize='10'
+                  >
+                    100%
+                  </text>
+
+                  <line
+                    x1='25'
+                    y1='120'
+                    x2='30'
+                    y2='120'
+                    stroke='#999'
+                    strokeWidth='1'
+                  />
+                  <text
+                    x='20'
+                    y='125'
+                    textAnchor='end'
+                    fill='#666'
+                    fontSize='10'
+                  >
+                    66%
+                  </text>
+
+                  <line
+                    x1='25'
+                    y1='180'
+                    x2='30'
+                    y2='180'
+                    stroke='#999'
+                    strokeWidth='1'
+                  />
+                  <text
+                    x='20'
+                    y='185'
+                    textAnchor='end'
+                    fill='#666'
+                    fontSize='10'
+                  >
+                    33%
+                  </text>
+
+                  <line
+                    x1='25'
+                    y1='240'
+                    x2='30'
+                    y2='240'
+                    stroke='#999'
+                    strokeWidth='1'
+                  />
+                  <text
+                    x='20'
+                    y='245'
+                    textAnchor='end'
+                    fill='#666'
+                    fontSize='10'
+                  >
+                    0%
+                  </text>
                 </g>
               </svg>
-              <div className='chart-title'>학습자 만족도 비교</div>
             </div>
           </div>
         </div>
