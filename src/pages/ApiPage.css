@@ -1,0 +1,437 @@
+/* src/pages/ApiPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+.api-page-container {
+  font-family: 'Noto Sans KR', sans-serif;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 헤더 섹션 스타일 */
+.api-header {
+  background-color: #f4fbfd;
+  padding: 80px 8%;
+  text-align: center;
+}
+
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.api-header h1 {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.header-description {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-button {
+  background-color: #1581ff;
+  color: white;
+  border: none;
+}
+
+.primary-button:hover {
+  background-color: #0068e1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(21, 129, 255, 0.3);
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: #1581ff;
+  border: 2px solid #1581ff;
+}
+
+.secondary-button:hover {
+  background-color: rgba(21, 129, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 섹션 공통 스타일 */
+section {
+  padding: 80px 8%;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #1a1a1a;
+}
+
+/* 특징 섹션 스타일 */
+.api-features-section {
+  background-color: white;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: #f9f9f9;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 40px;
+  color: #1581ff;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.feature-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* 사용 예시 섹션 스타일 */
+.api-example-section {
+  background-color: #f7f9fc;
+}
+
+.code-example {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #333;
+  color: white;
+}
+
+.copy-button {
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+  background-color: #777;
+}
+
+.code-block {
+  padding: 20px;
+  margin: 0;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: #282c34;
+  color: #abb2bf;
+  border-radius: 0 0 8px 8px;
+}
+
+/* 요금제 섹션 스타일 */
+.api-pricing-section {
+  background-color: white;
+}
+
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.pricing-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 30px;
+  width: 300px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card.featured {
+  background-color: #f4fbfd;
+  border: 2px solid #1581ff;
+  transform: scale(1.05);
+}
+
+.pricing-card.featured:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.popular-tag {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background-color: #1581ff;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.pricing-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1581ff;
+  margin-bottom: 20px;
+}
+
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.pricing-card ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+.pricing-card ul li:last-child {
+  border-bottom: none;
+}
+
+.pricing-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  background-color: transparent;
+  border: 2px solid #1581ff;
+  color: #1581ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pricing-button:hover {
+  background-color: rgba(21, 129, 255, 0.1);
+}
+
+.pricing-button.primary {
+  background-color: #1581ff;
+  color: white;
+}
+
+.pricing-button.primary:hover {
+  background-color: #0068e1;
+  box-shadow: 0 4px 12px rgba(21, 129, 255, 0.3);
+}
+
+/* FAQ 섹션 스타일 */
+.api-faq-section {
+  background-color: #f7f9fc;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background-color: white;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.faq-item p {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* CTA 섹션 스타일 */
+.api-cta-section {
+  background-color: #1581ff;
+  color: white;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.cta-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: white;
+  color: #1581ff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 992px) {
+  .api-header {
+    padding: 60px 5%;
+  }
+
+  .api-header h1 {
+    font-size: 36px;
+  }
+
+  section {
+    padding: 60px 5%;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pricing-card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+
+  .pricing-card.featured:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .api-header h1 {
+    font-size: 32px;
+  }
+
+  .header-description {
+    font-size: 16px;
+  }
+
+  .header-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .feature-card {
+    padding: 20px 15px;
+  }
+
+  .cta-content h2 {
+    font-size: 28px;
+  }
+
+  .cta-content p {
+    font-size: 16px;
+  }
+}

@@ -1,3 +1,5 @@
+// 기존 App.jsx를 업데이트하여 새로운 페이지를 라우팅에 추가
+
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -10,6 +12,8 @@ import WritePost from './pages/WritePost';
 import PostDetail from './pages/PostDetail';
 import HomePage from './pages/HomePage';
 import RequireAuth from './components/RequireAuth';
+import ApiPage from './pages/ApiPage'; // 새로 추가된 API 페이지
+import CustomerServicePage from './pages/CustomerServicePage'; // 새로 추가된 고객센터 페이지
 
 function App() {
   return (
@@ -41,8 +45,12 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route path='/api' element={<></>} />
-        <Route path='/customer-service' element={<></>} />
+        <Route path='/api' element={<ApiPage />} /> {/* API 페이지 라우트 */}
+        <Route
+          path='/customer-service'
+          element={<CustomerServicePage />}
+        />{' '}
+        {/* 고객센터 페이지 라우트 */}
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
       </Routes>
